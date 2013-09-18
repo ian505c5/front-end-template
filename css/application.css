@@ -1,4 +1,8 @@
-/* line 13, libs/_reset.scss */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 18, libs/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,42 +25,44 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-/* line 23, libs/_reset.scss */
+/* line 28, libs/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-/* line 26, libs/_reset.scss */
+/* line 31, libs/_reset.scss */
 body {
   line-height: 1;
 }
 
-/* line 29, libs/_reset.scss */
+/* line 34, libs/_reset.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 32, libs/_reset.scss */
+/* line 37, libs/_reset.scss */
 blockquote, q {
   quotes: none;
 }
 
-/* line 36, libs/_reset.scss */
+/* line 41, libs/_reset.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
   content: none;
 }
 
-/* line 40, libs/_reset.scss */
+/* line 45, libs/_reset.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
 /*
-* Skeleton-SASS V1.0
+* Nebo Skeleton-SASS
+*
+* Based off Skeleton-SASS V1.0
 * Copyright 2012 by Michael Lazer-Walker
 * https://github.com/lazerwalker/Skeleton-Sass
 *
@@ -225,4 +231,38 @@ td {
   border-bottom: 1px solid #ddd;
   text-align: center;
   padding: 10px;
+}
+
+/* line 13, core/_layout.scss */
+.l-container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  width: 960px;
+}
+/* line 42, libs/_skeleton.scss */
+.l-container:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  /* line 13, core/_layout.scss */
+  .l-container {
+    width: 768px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  /* line 13, core/_layout.scss */
+  .l-container {
+    width: 300px;
+  }
+}
+@media only screen and (min-width: 460px) and (max-width: 767px) {
+  /* line 13, core/_layout.scss */
+  .l-container {
+    width: 420px;
+  }
 }
