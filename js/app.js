@@ -1,9 +1,9 @@
 define(['jquery', 'utils'],
 function($,        utils) {
-	var initialize = function() {
+  var initialize = function() {
 
-	};
-	return {
-		initialize: initialize
-	}
+  };
+  return {
+    initialize: initialize
+  }
 });
