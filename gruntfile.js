@@ -2,29 +2,36 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
 
-        // uglify: {
-        //   options: {
-        //     mangle: true
-        //   },
-        //   build: {
-        //     src: "js/*.js",
-        //     dest: "js/min/script.js"
-        //   }
-        // },
         connect: {
             server: {
                 options: {
                     port: 9001,
-                    base: ''
+                    base: 'build/'
                 }
             }
         },
-
+        copy: {
+            build: {
+                cwd: 'dev/',
+                src: '**',
+                dest: 'build/',
+                expand: true
+            }
+           
+        },
+        clean: {
+            build: {
+                src: ['build']
+            },
+            scripts: {
+                src: ['build/js/*', '!build/js/site.js']
+            }
+        },
         compass: {                  // Task
             dist: {                   // Target
                 options: {              // Target options
-                    sassDir: 'css',
-                    cssDir: 'css',
+                    sassDir: 'dev/css',
+                    cssDir: 'dev/css',
                     environment: 'production'
                 }
             },
@@ -33,35 +40,35 @@ module.exports = function(grunt) {
                     debugInfo: true
                 }
             }
-            // dev: {                    // Another target
-            //     options: {
-            //         sassDir: 'css',
-            //         cssDir: 'css'
-            //     }
-            // }
-            // 
         },
-
-
+        useminPrepare: {
+            html: 'build/index.html',
+            options: {
+                dest: 'build'
+            }
+        },
+        usemin: {
+            html: 'build/index.html'
+        },
         watch: {
-			css: {
-				files: '**/*.scss',
-				tasks: ['compass:dist'],
-				options: {
-					livereload: true,
-				},
-			},
+			all: {
+                files: 'dev/*',
+                tasks: ['reload']
+            }
 		}
 
     });
 
-    // grunt.loadNpmTasks("grunt-contrib-uglify");
-    // grunt.loadNpmTasks("grunt-contrib-sass");
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks("grunt-usemin");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-compass');
-
-    grunt.registerTask('default', ['compass:dist','connect','watch']);
-    // grunt.registerTask('default', ['connect','watch']);
+    grunt.registerTask('reload', ['clean','copy','useminPrepare','concat','uglify','compass:dist','usemin','clean:scripts']);
+    grunt.registerTask('default', ['clean','copy','useminPrepare','concat','uglify','compass:dist','usemin','clean:scripts','connect','watch']);
 
 };
