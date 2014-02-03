@@ -42,3 +42,7 @@ var NavEvents = (function(){
 	};
 
 }());
+
+$(document).ready(function(){
+	NavEvents.addDropdown('.whatever');
+});
