@@ -9,20 +9,23 @@
 //   Libraries
 // -------------------------------------
 
+// ----- Custom variables for libraries ----- //
+@import "libs/library-custom-variables";
+
 // ----- Reset ----- //
 @import "libs/reset";
 
 // ----- Bootstrap Grid ----- //
 @import "libs/bootstrap/bootstrap";
 
-// ----- Variable overrides for libraries ----- //
-@import "libs/library-variable-overrides";
-
 // ----- Compass - Setup: http://compass-style.org/help/
 // ----- Run compass create on project root 
 // ----- Delete generated ie, print, and screen files  
 // ----- Update paths on config.rb ----- //
 @import "compass";
+
+// ----- Variable overrides for libraries ----- //
+@import "libs/library-variable-overrides";
 
 
 // -------------------------------------
