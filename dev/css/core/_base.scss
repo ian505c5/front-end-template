@@ -25,7 +25,12 @@ body {
 //   Block Content
 // -------------------------------------
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.2;
 }
 h1 {
@@ -54,37 +59,41 @@ blockquote {
   margin-bottom: 20px;
   padding: 10px;
 }
+pre {
+  font-family: Menlo, Monaco, "Andale Mono", "Lucida Console", monospace;
+  margin-bottom: 20px;
+}
 
 
 // -------------------------------------
 //   Inline Content
 // -------------------------------------
 
-pre, code {
-  font-family: "Andale Mono", "Lucida Console", monospace;
-  margin-bottom: 20px;
-}
 a {
   color: #2980b9;
   text-decoration: none;
 }
-a:visited {
-}
-a:hover,
 a:active,
-a:focus {
+a:focus,
+a:hover {
   color: #2c3e50;
 }
-del, strike {
+code {
+  font-family: Menlo, Monaco, "Andale Mono", "Lucida Console", monospace;
+}
+del,
+strike {
   text-decoration: line-through;
 }
-em, i {
+em,
+i {
   font-style: italic;
 }
 small {
   font-size: 75%;
 }
-strong, b {
+strong,
+b {
   font-weight: bold;
 }
 sub,
