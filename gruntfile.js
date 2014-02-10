@@ -16,6 +16,12 @@ module.exports = function(grunt) {
                 src: '**',
                 dest: 'build/',
                 expand: true
+            },
+            vendor: {
+                cwd: 'dev/',
+                src: 'js/vendor/**/*.js',
+                dest: 'build/',
+                expand: true
             }
            
         },
@@ -68,7 +74,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.registerTask('reload', ['clean','copy','useminPrepare','concat','uglify','compass:dist','usemin','clean:scripts']);
-    grunt.registerTask('default', ['clean','copy','useminPrepare','concat','uglify','compass:dist','usemin','clean:scripts','connect','watch']);
+    grunt.registerTask('reload', ['clean','copy','useminPrepare','concat','uglify','compass:dist','usemin','clean:scripts','copy:vendor']);
+    grunt.registerTask('default', ['clean','copy','useminPrepare','concat','uglify','compass:dist','usemin','clean:scripts','copy:vendor','connect','watch']);
 
 };
