@@ -29,8 +29,8 @@ module.exports = function(grunt) {
             build: {
                 src: ['build']
             },
-            scripts: {
-                src: ['build/js/*','build/css/*', '!build/js/site.js', '!build/css/application.css']
+            all: {
+                src: ['build/js/*','build/css/*', '!build/js/main.js', '!build/css/application.css', 'build/includes']
             }
         },
         compass: {                  // Task
@@ -48,13 +48,25 @@ module.exports = function(grunt) {
             }
         },
         useminPrepare: {
-            html: 'build/index.html',
+            html: 'build/**/*.html',
             options: {
                 dest: 'build'
             }
         },
         usemin: {
-            html: 'build/index.html'
+            html: 'build/**/*.html'
+        },
+        includes: {
+          build: {
+            cwd: 'build',
+            src: [ '*.html' ],
+            dest: 'build',
+            options: {
+              flatten: true,
+              includePath: 'build/includes',
+              banner: ''
+            }
+          }
         },
         watch: {
              all: {
@@ -74,7 +86,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.registerTask('reload', ['clean','compass:dist','copy','useminPrepare','concat','uglify','usemin','clean:scripts','copy:vendor']);
-    grunt.registerTask('default', ['clean','compass:dist','copy','useminPrepare','concat','uglify','usemin','clean:scripts','copy:vendor','connect','watch']);
+    grunt.loadNpmTasks('grunt-includes');
+    grunt.registerTask('reload', ['clean','compass:dist','copy','useminPrepare','concat','uglify','usemin','includes','clean:all','copy:vendor']);
+    grunt.registerTask('default', ['clean','compass:dist','copy','useminPrepare','concat','uglify','usemin','includes','clean:all','copy:vendor','connect','watch']);
 
 };
