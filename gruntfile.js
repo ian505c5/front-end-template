@@ -30,7 +30,7 @@ module.exports = function(grunt) {
                 src: ['build']
             },
             scripts: {
-                src: ['build/js/*', '!build/js/site.js']
+                src: ['build/js/*','build/css/*', '!build/js/site.js', '!build/css/application.css']
             }
         },
         compass: {                  // Task
@@ -57,11 +57,11 @@ module.exports = function(grunt) {
             html: 'build/index.html'
         },
         watch: {
-			all: {
-                files: 'dev/*',
+             all: {
+                files: 'dev/**/*',
                 tasks: ['reload']
             }
-		}
+        }
 
     });
 
