@@ -74,6 +74,11 @@ module.exports = function(grunt) {
                 files: 'dev/**/*',
                 tasks: ['reload']
             }
+        },
+        open: {
+            server: {
+                path: 'http://localhost:9001'
+            }
         }
 
     });
@@ -88,7 +93,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-includes');
+    grunt.loadNpmTasks('grunt-open');
     grunt.registerTask('reload', ['clean','compass:dist','copy','useminPrepare','concat','uglify','usemin','includes','clean:all','copy:vendor']);
-    grunt.registerTask('default', ['clean','compass:dist','copy','useminPrepare','concat','uglify','usemin','includes','clean:all','copy:vendor','connect','watch']);
+    grunt.registerTask('default', ['clean','compass:dist','copy','useminPrepare','concat','uglify','usemin','includes','clean:all','copy:vendor','connect','open','watch']);
 
 };
