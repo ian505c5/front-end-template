@@ -30,7 +30,7 @@ module.exports = function(grunt) {
                 src: ['build']
             },
             all: {
-                src: ['build/js/*','build/css/*', '!build/js/main.js', '!build/css/application.css', 'build/includes']
+                src: ['build/js/*','build/css/*', '!build/js/site.js', '!build/css/application.css', 'build/includes']
             }
         },
         compass: {                  // Task
