@@ -30,7 +30,7 @@ module.exports = function(grunt) {
                 src: ['build']
             },
             all: {
-                src: ['build/js/*','build/css/*', '!build/js/site.js', '!build/css/application.css', 'build/includes']
+                src: ['build/js/*','build/css/*', '!build/js/site.js', '!build/css/application.css', 'build/includes', 'build/components']
             }
         },
         compass: {                  // Task
@@ -56,17 +56,31 @@ module.exports = function(grunt) {
         usemin: {
             html: 'build/**/*.html'
         },
-        includes: {
-          build: {
-            cwd: 'build',
-            src: [ '*.html' ],
-            dest: 'build',
-            options: {
-              flatten: true,
-              includePath: 'build/includes',
-              banner: ''
+        // includes: {
+        //   build: {
+        //     cwd: 'build',
+        //     src: [ '*.html' ],
+        //     dest: 'build',
+        //     options: {
+        //       flatten: true,
+        //       includePath: 'build/includes',
+        //       banner: ''
+        //     }
+        //   }
+        // },
+        includereplace: {
+            your_target: {
+                options: {
+                // Task-specific options go here.
+                    includesDir: 'dev/includes',
+                },
+                expand: true,
+                // Files to perform replacements and includes with
+                src: ['**/*.html'],
+                // Destination directory to copy files to
+                dest: 'build/',
+                cwd: 'dev'
             }
-          }
         },
         watch: {
              all: {
@@ -92,9 +106,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-includes');
+    grunt.loadNpmTasks('grunt-include-replace');
     grunt.loadNpmTasks('grunt-open');
-    grunt.registerTask('reload', ['clean','compass:dist','copy','useminPrepare','concat','uglify','usemin','includes','clean:all','copy:vendor']);
-    grunt.registerTask('default', ['clean','compass:dist','copy','useminPrepare','concat','uglify','usemin','includes','clean:all','copy:vendor','connect','open','watch']);
+    grunt.registerTask('reload', ['clean','compass:dist','copy','includereplace','useminPrepare','concat','uglify','usemin','clean:all','copy:vendor']);
+    grunt.registerTask('default', ['clean','compass:dist','copy','includereplace','useminPrepare','concat','uglify','usemin','clean:all','copy:vendor','connect','open','watch']);
 
 };

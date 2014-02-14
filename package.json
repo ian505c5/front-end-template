@@ -15,6 +15,8 @@
     "grunt-contrib-cssmin": "~0.7.0",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-copy": "~0.5.0",
-    "grunt-includes": "~0.4.2"
+    "grunt-includes": "~0.4.2",
+    "grunt-include-replace": "~1.2.0",
+    "grunt-open": "~0.2.3"
   }
 }
