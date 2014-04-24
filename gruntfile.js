@@ -36,9 +36,7 @@ module.exports = function(grunt) {
         compass: {                  // Task
             dist: {                   // Target
                 options: {              // Target options
-                    sassDir: 'dev/css',
-                    cssDir: 'dev/css',
-                    environment: 'production'
+                    config: 'config.rb'
                 }
             },
              server: {

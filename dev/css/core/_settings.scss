@@ -14,6 +14,13 @@
 //   Variables
 // -------------------------------------
 
+
+// -------------------------------------
+//   Sprites
+// -------------------------------------
+$sprites: sprite-map("sprites/buttons/*.png");            // import 1x sprites
+$sprites2x: sprite-map("sprites-retina/buttons/*.png");   // import 2x sprites
+
 // ----- Base Colors ----- //
 
 // ----- Base Borders & Box Shadows ----- //

@@ -24,6 +24,9 @@
 // ----- Update paths on config.rb ----- //
 @import "compass";
 
+// ---- Spriting
+@import "utilities/retina-sprites";
+
 // ----- Variable overrides for libraries ----- //
 @import "libs/library-variable-overrides";
 
@@ -59,7 +62,21 @@
 // -------------------------------------
 // ----- The inbox allows developers, and those not actively working on the CSS, 
 // to quickly add styles that are easily seen by the maintainer of the file.
+.myHoverActiveButton {
+	@include retina-sprite(signIn, $hover: true, $active: true);
+}
 
+.myHoverButton {
+	@include retina-sprite(signIn, $hover: true);
+}
+
+.myActiveButton {
+	@include retina-sprite(signIn, $active: true);
+}
+
+.myBoringButton {
+	@include retina-sprite(signIn);
+}
 
 // -------------------------------------
 //   Shame 
